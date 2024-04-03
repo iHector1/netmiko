@@ -12,15 +12,21 @@ def main():
     }
     router = nt.ConnectHandler(**routerInformation)
     if isAlive(router):
-        changedBanner(router)
-        showVersion(router)
-        configureInterface(router)
-        showInterfaces(router)
+        #changedBanner(router)
+        #showVersion(router)
+        #configureInterface(router)
+        #showInterfaces(router)
+        write_to_file("hola")
+        write_to_file("adios")
+
     else:
         print("Router is dead")
     
     router.disconnect()
     sys.stdout.close()
+def write_to_file(text):
+    with open('resultado1.txt', 'a') as f:
+        f.write(text + '\n')
 
 def isAlive(router):
     return router.is_alive()
